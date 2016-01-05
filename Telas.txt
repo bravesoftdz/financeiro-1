@@ -1,0 +1,5 @@
+- Cadastrar Contas:    ID, Tipo(Conta Carteira, Conta Corrente, Poupança), Banco, Agencia, Numero, Nome
+
+- Cadastrar Receita/Despesa: ID, Data, Descrição, Valor, Conta(FK) 
+
+-Cadastrar Pessoa
