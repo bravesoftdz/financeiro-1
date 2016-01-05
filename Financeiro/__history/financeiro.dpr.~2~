@@ -1,0 +1,16 @@
+program financeiro;
+
+uses
+  Vcl.Forms,
+  uPrincipal in 'uPrincipal.pas' {frmPrincipal},
+  uConfiguraBanco in 'uConfiguraBanco.pas' {frmConfiguraBanco};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmConfiguraBanco, frmConfiguraBanco);
+  Application.Run;
+end.
