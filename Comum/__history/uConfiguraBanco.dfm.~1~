@@ -1,0 +1,5 @@
+inherited frmComum1: TfrmComum1
+  Caption = 'frmComum1'
+  PixelsPerInch = 96
+  TextHeight = 20
+end
