@@ -17,14 +17,16 @@ object frmPrincipal: TfrmPrincipal
   TextHeight = 15
   object pnlBarraLateral: TPanel
     Left = 0
-    Top = 0
+    Top = 30
     Width = 241
-    Height = 419
+    Height = 389
     Align = alLeft
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = 0
+    ExplicitHeight = 419
     object btnInicial: TSpeedButton
       Left = 0
       Top = 36
@@ -181,7 +183,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object btnConfiguracao: TSpeedButton
       Left = 0
-      Top = 383
+      Top = 353
       Width = 241
       Height = 36
       Align = alBottom
@@ -244,7 +246,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object btnUsuario: TSpeedButton
       Left = 0
-      Top = 347
+      Top = 317
       Width = 241
       Height = 36
       Align = alBottom
@@ -288,6 +290,7 @@ object frmPrincipal: TfrmPrincipal
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000000101012929292B2B2B02020200000000000000000000000000
         0000000000000000000000000000}
+      OnClick = btnUsuarioClick
       ExplicitTop = 369
       ExplicitWidth = 41
     end
@@ -295,11 +298,12 @@ object frmPrincipal: TfrmPrincipal
       Left = 0
       Top = 108
       Width = 241
-      Height = 233
-      Align = alTop
+      Height = 209
+      Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
       Visible = False
+      ExplicitHeight = 233
       object btnContasReceber: TSpeedButton
         Left = 0
         Top = 84
@@ -380,50 +384,98 @@ object frmPrincipal: TfrmPrincipal
   end
   object pnlConteudo: TPanel
     Left = 241
-    Top = 0
+    Top = 30
     Width = 546
-    Height = 419
+    Height = 389
     Align = alClient
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    object pnlSuperior: TPanel
+    ExplicitTop = 0
+    ExplicitHeight = 419
+    object pnlJanela: TPanel
       Left = 0
       Top = 0
       Width = 546
-      Height = 36
-      Align = alTop
-      BevelOuter = bvNone
-      Color = 15658734
-      ParentBackground = False
-      TabOrder = 0
-      object edtPesquisar: TEdit
-        AlignWithMargins = True
-        Left = 295
-        Top = 3
-        Width = 248
-        Height = 30
-        Align = alRight
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -19
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        Text = 'Pesquisar'
-        ExplicitHeight = 33
-      end
-    end
-    object pnlJanela: TPanel
-      Left = 0
-      Top = 36
-      Width = 546
-      Height = 383
+      Height = 389
       Align = alClient
       BevelOuter = bvNone
+      TabOrder = 0
+      ExplicitTop = 36
+      ExplicitHeight = 383
+    end
+  end
+  object pnlSuperior: TPanel
+    Left = 0
+    Top = 0
+    Width = 787
+    Height = 30
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 12615680
+    ParentBackground = False
+    TabOrder = 2
+    object btnVoltar: TPngSpeedButton
+      Left = 0
+      Top = 0
+      Width = 39
+      Height = 30
+      Align = alLeft
+      Flat = True
+      Visible = False
+      OnClick = btnVoltarClick
+      PngImage.Data = {
+        89504E470D0A1A0A0000000D494844520000001A0000001A0806000000A94A4C
+        CE00000006624B474400FF00FF00FFA0BDA793000000DC4944415478DAEDD5BD
+        0A825018C6710FD1D0FD445010A53604B57607DD611F3A34D454434B0DD5D43D
+        1454A3FDA577905207F58D080F3C3C0AE2EF9CC3418DF5A5614AE87FA02008EA
+        D4C11873578340DAD49CF840231508C4A526E4467A40BBC22110479070BB5C90
+        7D1624158A2057E2801CB3228910884D4D05B1414E79905808A44BCDC8455692
+        1BF980401AD482D4C8993C72BC7BCB24C749902DABA9AA4282B5282FBC247D1E
+        DE14BE759A58DAF16E52BEDC86D85A057AC32A6400B6528162B021D8520512AC
+        63BD4EA3A7F6518D60FABF89224609FD3EF40411835B1B8F1E56CF0000000049
+        454E44AE426082}
+    end
+    object edtPesquisar: TEdit
+      AlignWithMargins = True
+      Left = 536
+      Top = 3
+      Width = 248
+      Height = 24
+      Align = alRight
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pesquisar'
+      ExplicitHeight = 29
+    end
+    object pnlTitulo: TPanel
+      AlignWithMargins = True
+      Left = 47
+      Top = 3
+      Width = 483
+      Height = 24
+      Margins.Left = 8
+      Align = alClient
+      Alignment = taLeftJustify
+      BevelOuter = bvNone
+      Caption = 'Financeiro'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 128
+      ExplicitTop = 8
+      ExplicitWidth = 185
+      ExplicitHeight = 41
     end
   end
 end

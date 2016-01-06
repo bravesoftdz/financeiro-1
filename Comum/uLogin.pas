@@ -7,12 +7,12 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
 
 type
-  TForm1 = class(TForm)
-    edt1: TEdit;
-    Edit1: TEdit;
+  TfrmLogin = class(TForm)
+    edtUsuario: TEdit;
+    edtSenha: TEdit;
     Label1: TLabel;
     Label2: TLabel;
-    BitBtn1: TBitBtn;
+    btnEntrar: TBitBtn;
     Label3: TLabel;
     Image1: TImage;
   private
@@ -22,7 +22,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  frmLogin: TfrmLogin;
 
 implementation
 
