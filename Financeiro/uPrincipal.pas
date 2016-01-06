@@ -26,6 +26,7 @@ type
     pnlJanela: TPanel;
     procedure FormShow(Sender: TObject);
     procedure btnMenuClick(Sender: TObject);
+    procedure btnConfiguracaoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,6 +41,16 @@ implementation
 
 {$R *.dfm}
 
+uses
+  uConfiguraBanco;
+
+procedure TfrmPrincipal.btnConfiguracaoClick(Sender: TObject);
+begin
+  frmConfiguraBanco := TfrmConfiguraBanco.Create(frmPrincipal);
+  frmConfiguraBanco.Visible := True;
+  frmConfiguraBanco.AbrirConfiguracao;
+end;
+
 procedure TfrmPrincipal.btnMenuClick(Sender: TObject);
 begin
   if pnlMenu.Visible then
@@ -50,6 +61,7 @@ begin
   begin
     AlterarTela('A');
   end;
+
 end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);
