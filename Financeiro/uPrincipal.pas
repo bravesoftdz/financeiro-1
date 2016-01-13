@@ -32,6 +32,7 @@ type
     procedure btnConfiguracaoClick(Sender: TObject);
     procedure btnUsuarioClick(Sender: TObject);
     procedure btnVoltarClick(Sender: TObject);
+    procedure btnCadContasClick(Sender: TObject);
   private
     procedure AbrirTela(Form: TComponentClass);
     procedure FecharTela;
@@ -50,7 +51,12 @@ implementation
 {$R *.dfm}
 
 uses
-  uConfiguraBanco, uLogin;
+  uConfiguraBanco, uLogin, uCadContas, uDmPrincipal, uTiposConta;
+
+procedure TfrmPrincipal.btnCadContasClick(Sender: TObject);
+begin
+AbrirTela(TfrmCadastroContas);
+end;
 
 procedure TfrmPrincipal.btnConfiguracaoClick(Sender: TObject);
 begin

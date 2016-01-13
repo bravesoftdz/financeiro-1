@@ -70,7 +70,7 @@
 			<DCC_RemoteDebug>true</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-			<Icon_MainIcon>..\..\..\..\Downloads\1452071713_money-pig.ico</Icon_MainIcon>
+			<Icon_MainIcon>financeiro_Icon.ico</Icon_MainIcon>
 			<DCC_ExeOutput>.\</DCC_ExeOutput>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 			<DCC_DcuOutput>.\temp</DCC_DcuOutput>
@@ -105,6 +105,14 @@
 			</DCCReference>
 			<DCCReference Include="..\Comum\uLogin.pas">
 				<Form>frmLogin</Form>
+			</DCCReference>
+			<DCCReference Include="uCadContas.pas">
+				<Form>frmCadastroContas</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="uTiposConta.pas">
+				<Form>frmTiposConta</Form>
+				<FormType>dfm</FormType>
 			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>

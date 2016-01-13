@@ -3,10 +3,16 @@ unit uDmPrincipal;
 interface
 
 uses
-  System.SysUtils, System.Classes, Vcl.Forms;
+  System.SysUtils, System.Classes, Vcl.Forms, uADStanIntf, uADStanOption,
+  uADStanError, uADGUIxIntf, uADPhysIntf, uADStanDef, uADStanPool, uADStanAsync,
+  uADPhysManager, Data.DB, uADCompClient, uADPhysIB, uADGUIxFormsWait,
+  uADCompGUIx;
 
 type
   TdmPrincipal = class(TDataModule)
+    Conexao: TADConnection;
+    adDriver: TADPhysIBDriverLink;
+    adCursor: TADGUIxWaitCursor;
   private
     { Private declarations }
   public

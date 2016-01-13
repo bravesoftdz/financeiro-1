@@ -33,7 +33,7 @@ uses
 
 procedure TfrmConfiguraBanco.AbrirConfiguracao;
 begin
-  frmConfiguraBanco.Dock(frmPrincipal.pnlJanela,frmPrincipal.pnlJanela.ClientRect);
+
 end;
 
 procedure TfrmConfiguraBanco.btnCaminhoClick(Sender: TObject);

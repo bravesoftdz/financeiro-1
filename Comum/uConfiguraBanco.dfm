@@ -2,30 +2,23 @@ inherited frmConfiguraBanco: TfrmConfiguraBanco
   Caption = 'Configurar banco de dados'
   ClientWidth = 680
   ExplicitWidth = 696
-  ExplicitHeight = 357
   PixelsPerInch = 96
   TextHeight = 20
   inherited pnlTitulo: TPanel
     Width = 680
-    ExplicitLeft = 0
-    ExplicitTop = 0
-    ExplicitWidth = 606
+    ExplicitWidth = 680
   end
   inherited pnlBotoes: TPanel
     Width = 620
-    ExplicitLeft = 30
-    ExplicitTop = 44
-    ExplicitWidth = 546
+    ExplicitWidth = 620
   end
   inherited pnlStatus: TPanel
     Width = 680
+    ExplicitWidth = 680
   end
   inherited pnlCentro: TPanel
     Width = 680
-    ExplicitLeft = 96
-    ExplicitTop = 82
-    ExplicitWidth = 606
-    ExplicitHeight = 216
+    ExplicitWidth = 680
     object Label1: TLabel
       Left = 30
       Top = 16

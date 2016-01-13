@@ -25,8 +25,6 @@ object frmPrincipal: TfrmPrincipal
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 0
-    ExplicitHeight = 419
     object btnInicial: TSpeedButton
       Left = 0
       Top = 36
@@ -303,7 +301,6 @@ object frmPrincipal: TfrmPrincipal
       BevelOuter = bvNone
       TabOrder = 0
       Visible = False
-      ExplicitHeight = 233
       object btnContasReceber: TSpeedButton
         Left = 0
         Top = 84
@@ -379,6 +376,7 @@ object frmPrincipal: TfrmPrincipal
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        OnClick = btnCadContasClick
       end
     end
   end
@@ -392,8 +390,6 @@ object frmPrincipal: TfrmPrincipal
     Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 0
-    ExplicitHeight = 419
     object pnlJanela: TPanel
       Left = 0
       Top = 0
@@ -402,8 +398,6 @@ object frmPrincipal: TfrmPrincipal
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 36
-      ExplicitHeight = 383
     end
   end
   object pnlSuperior: TPanel
@@ -472,10 +466,6 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 128
-      ExplicitTop = 8
-      ExplicitWidth = 185
-      ExplicitHeight = 41
     end
   end
 end
