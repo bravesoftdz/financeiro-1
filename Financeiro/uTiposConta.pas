@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uComum, Vcl.ExtCtrls, uADStanIntf,
   uADStanOption, uADStanParam, uADStanError, uADDatSManager, uADPhysIntf,
   uADDAptIntf, uADStanAsync, uADDAptManager, Data.DB, uADCompDataSet,
-  uADCompClient, uDmPrincipal;
+  uADCompClient, uDmPrincipal, Vcl.ComCtrls, Vcl.Buttons, PngSpeedButton;
 
 type
   TfrmTiposConta = class(TfrmComum)

@@ -1,186 +1,338 @@
 inherited frmCadastroContas: TfrmCadastroContas
   Caption = 'Cadastrar contas'
-  ClientWidth = 490
-  ExplicitWidth = 506
-  ExplicitHeight = 357
+  ClientHeight = 567
+  ClientWidth = 947
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  ExplicitTop = -225
+  ExplicitWidth = 963
+  ExplicitHeight = 606
   PixelsPerInch = 96
   TextHeight = 20
-  inherited pnlTitulo: TPanel
-    Width = 490
-    ExplicitLeft = 0
-    ExplicitTop = 0
-    ExplicitWidth = 490
+  inherited pnlStatus: TPanel
+    Top = 553
+    Width = 947
+    ExplicitTop = 553
+    ExplicitWidth = 947
   end
   inherited pnlBotoes: TPanel
-    Width = 430
-    ExplicitLeft = 30
-    ExplicitTop = 44
-    ExplicitWidth = 430
-    object btnGravar: TPngSpeedButton
-      Left = 0
-      Top = 3
-      Width = 89
-      Height = 35
-      Caption = 'Gravar'
-      Flat = True
-      PngImage.Data = {
-        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-        F400000006624B474400FF00FF00FFA0BDA793000000994944415478DA636418
-        60C038EA805107E010FF4F05B3CF03B12B10BF1D280780C045207601E237E43A
-        80918018367118FF34109B02F14D207602E267F476802010EF823AE216D4114F
-        69E1007C7A4581782F10EB02F13520D6A6B70318A08E78854B2F390E201610E5
-        F821E5004AC0A803287600B92523BAFEA1EF0062A38468FDA30E1875C0A80368
-        DD242368DFA07500DDC0A803461D0000EB8B4D214B5C1BCD0000000049454E44
-        AE426082}
+    Width = 887
+    ExplicitWidth = 887
+    inherited btnNovo: TPngSpeedButton
+      OnClick = btnNovoClick
     end
-    object btnEditar: TPngSpeedButton
-      Left = 95
-      Top = 3
-      Width = 89
-      Height = 35
-      Caption = 'Editar'
-      Flat = True
-      PngImage.Data = {
-        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-        F400000006624B474400FF00FF00FFA0BDA793000001EC4944415478DAEDD7CF
-        2B65611CC7F1C78FC982A2994116FE001B9B61CA4AB12156945F77AEA5C9C68E
-        295990A4CC4A4A5698F12316EC5C45B19925CA82CD4C162211E3D7CAAF787F7B
-        9E5BC7ED9EEBFE780E92A75EDDD3B9D7F97CCE3DCF3DCF91A45E7824BD17F0F8
-        F869B8C5DD7317F882417CC53596D086BDE728E0C3183E98F05424E3188538F0
-        B240137E2305C3684716A6518A19347A55400E3C61C2FF9BB3DD37EFE599ED73
-        7CC4BDED020D9834E1F2557FC616CA7084749C2A3D21337163B340BD09976B3D
-        807E2CA3087F4D894EB46205E5CE3F4EB4401DA61CE13FCCFE5CACA20027F8A4
-        F484945FC5A6AD026EE1C12197611BD94ADF079A959E8C8F46BC05E460A34A5F
-        F31E748739EE085A94BEDE3247E6C31D289E02D6C2E329E057FA2663253CD602
-        D6C36329F00DE3B6C3A32DE0597834056209BF422D16A20D7FAA80AC6ABFBC0C
-        8F5440C265559365F4273ABC088F54E0103966FB02DF955E4A8343EE7CB2D4CA
-        E2E20F792FE102F9D8C519FEA05AE9E5535E0321E1324766E30D772B50833913
-        56A5F44AD6A7F4322BFBE44E78653E174824DCAD402FBA4C6897D9B7880AB36D
-        E5CC231590B3AAC4102E518C126428BDAAF96C85BB15704E40E790279A569BE1
-        E10A3827E006D6B06E5E776C06BB159027587980F8A71C0F8E5E8E37FFAFD9EB
-        2FF000955F83215BD554420000000049454E44AE426082}
+    inherited btnGravar: TPngSpeedButton
+      OnClick = btnGravarClick
     end
-    object btnExcluir: TPngSpeedButton
-      Left = 190
-      Top = 3
-      Width = 89
-      Height = 35
-      Caption = 'Excluir'
-      Flat = True
-      PngImage.Data = {
-        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-        F400000006624B474400FF00FF00FFA0BDA7930000009F4944415478DA636418
-        60C038EA80A1E8001120DE0DC40668E21780D81588DF50CB01FFE9E159721D70
-        0E889D81F803942F00C47B81D8889A0E407604B96985A0FE51070C390750CA1F
-        75C0A803461D30EA80510750EC0052C1A8032876C073209600625B203E42A2E5
-        76407C106A8614B90EE800E272327D0F036D405C4DAE035881B8098893815894
-        448B5F01F15C20AE07E2DFE43A80E660D40103EE00003AF557217E4A3C4A0000
-        000049454E44AE426082}
+    inherited btnEditar: TPngSpeedButton
+      OnClick = btnEditarClick
     end
-  end
-  inherited pnlStatus: TPanel
-    Width = 490
-    ExplicitWidth = 490
+    inherited btnCancelar: TPngSpeedButton
+      OnClick = btnCancelarClick
+    end
+    inherited btnExcluir: TPngSpeedButton
+      OnClick = btnExcluirClick
+    end
   end
   inherited pnlCentro: TPanel
-    Width = 490
-    ExplicitLeft = 0
-    ExplicitTop = 88
-    ExplicitWidth = 490
-    ExplicitHeight = 216
+    Width = 947
+    Height = 469
+    ExplicitWidth = 947
+    ExplicitHeight = 469
     object lblID: TLabel
       Left = 30
-      Top = 3
-      Width = 18
+      Top = 67
+      Width = 15
       Height = 20
-      Caption = 'ID:'
+      Caption = 'ID'
     end
     object lblTipoContas: TLabel
       Left = 30
-      Top = 63
-      Width = 74
+      Top = 191
+      Width = 71
       Height = 20
-      Caption = 'Tipo conta:'
+      Caption = 'Tipo conta'
     end
     object lblUnidade: TLabel
-      Left = 200
-      Top = 63
-      Width = 59
+      Left = 30
+      Top = 127
+      Width = 56
       Height = 20
-      Caption = 'Unidade:'
+      Caption = 'Unidade'
     end
     object lblStatus: TLabel
-      Left = 200
-      Top = 3
-      Width = 43
+      Left = 30
+      Top = 11
+      Width = 40
       Height = 20
-      Caption = 'Status:'
+      Caption = 'Status'
     end
     object lblDescricao: TLabel
       Left = 30
-      Top = 136
-      Width = 68
+      Top = 264
+      Width = 65
       Height = 20
-      Caption = 'Descri'#231#227'o:'
+      Caption = 'Descri'#231#227'o'
     end
     object cbbTipoConta: TDBLookupComboBox
       Left = 30
-      Top = 89
-      Width = 145
+      Top = 217
+      Width = 176
       Height = 28
       BevelOuter = bvNone
-      DataField = 'ID_TIPO_CONTAS'
-      DataSource = dsCadContas
       KeyField = 'ID'
       ListField = 'DESCRICAO'
-      ListFieldIndex = 1
-      ListSource = frmTiposConta.dsTiposConta
-      TabOrder = 0
+      ListFieldIndex = 2
+      ListSource = dsTipoConta
+      TabOrder = 3
     end
     object edtID: TEdit
       Left = 30
-      Top = 29
-      Width = 145
+      Top = 93
+      Width = 176
       Height = 28
       TabStop = False
       BevelOuter = bvNone
       Enabled = False
+      NumbersOnly = True
       ReadOnly = True
       TabOrder = 1
     end
     object cbbUnidade: TDBLookupComboBox
-      Left = 200
-      Top = 89
-      Width = 145
+      Left = 30
+      Top = 153
+      Width = 176
       Height = 28
       BevelOuter = bvNone
+      Color = clWhite
+      KeyField = 'ID_UNIDADE'
+      ListField = 'UNIDADE'
+      ListFieldIndex = 2
+      ListSource = dsUnidade
       TabOrder = 2
     end
-    object edtStatus: TEdit
-      Left = 200
-      Top = 29
-      Width = 145
+    object cbbStatus: TComboBox
+      Left = 30
+      Top = 37
+      Width = 176
       Height = 28
       BevelOuter = bvNone
-      TabOrder = 3
+      TabOrder = 0
+      Items.Strings = (
+        'Inativa'
+        'Ativa'
+        '')
     end
-    object edtDescricao: TEdit
+    object edtDesc: TEdit
       Left = 30
-      Top = 162
-      Width = 315
+      Top = 291
+      Width = 267
       Height = 28
+      MaxLength = 255
       TabOrder = 4
     end
+    object gridCadContas: TDBGrid
+      AlignWithMargins = True
+      Left = 30
+      Top = 333
+      Width = 914
+      Height = 133
+      Margins.Left = 30
+      TabStop = False
+      Align = alBottom
+      DataSource = dsGridCadContas
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ParentColor = True
+      TabOrder = 5
+      TitleFont.Charset = ANSI_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -15
+      TitleFont.Name = 'Segoe UI'
+      TitleFont.Style = []
+      OnCellClick = gridCadContasCellClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'CONTA'
+          Title.Alignment = taCenter
+          Title.Caption = 'Conta'
+          Width = 80
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NOME'
+          Title.Alignment = taCenter
+          Title.Caption = 'Descri'#231#227'o'
+          Width = 350
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'TIPO'
+          Title.Alignment = taCenter
+          Title.Caption = 'Tipo da Conta'
+          Width = 250
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO_STATUS'
+          Title.Alignment = taCenter
+          Title.Caption = 'Status'
+          Width = 75
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'UNIDADE'
+          Title.Alignment = taCenter
+          Title.Caption = 'Unidade'
+          Width = 290
+          Visible = True
+        end>
+    end
+  end
+  inherited pnlTitulo: TPanel
+    Width = 947
+    ExplicitWidth = 947
   end
   object qryCadContas: TADQuery
     Connection = dmPrincipal.Conexao
-    SQL.Strings = (
-      ''
-      'SELECT * FROM FIN_CONTAS;')
-    Left = 456
+    Left = 440
   end
   object dsCadContas: TDataSource
     DataSet = qryCadContas
-    Left = 424
+    Left = 368
+  end
+  object qryTipoConta: TADQuery
+    Connection = dmPrincipal.Conexao
+    SQL.Strings = (
+      'SELECT ID,DESCRICAO FROM FIN_TIPO_CONTAS;')
+    Left = 224
+    Top = 296
+    object qryTipoContaID: TIntegerField
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryTipoContaDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Required = True
+      Size = 255
+    end
+  end
+  object qryUnidade: TADQuery
+    Connection = dmPrincipal.Conexao
+    SQL.Strings = (
+      'SELECT UN.ID AS ID_UNIDADE,'
+      '       UN.NOME AS UNIDADE'
+      'FROM SYS_UNIDADE UN;')
+    Left = 224
+    Top = 232
+    object qryUnidadeID_UNIDADE: TIntegerField
+      FieldName = 'ID_UNIDADE'
+      Origin = 'ID'
+      Required = True
+    end
+    object qryUnidadeUNIDADE: TStringField
+      FieldName = 'UNIDADE'
+      Origin = 'NOME'
+      Size = 255
+    end
+  end
+  object dsTipoConta: TDataSource
+    DataSet = qryTipoConta
+    Left = 288
+    Top = 296
+  end
+  object dsUnidade: TDataSource
+    DataSet = qryUnidade
+    Left = 280
+    Top = 232
+  end
+  object dsGridCadContas: TDataSource
+    DataSet = qryGridCadContas
+    Left = 648
+    Top = 472
+  end
+  object qryGridCadContas: TADQuery
+    Active = True
+    AutoCalcFields = False
+    AfterScroll = qryGridCadContasAfterScroll
+    Connection = dmPrincipal.Conexao
+    SQL.Strings = (
+      'SELECT C.ID AS CONTA,'
+      '       C.DESCRICAO AS NOME,'
+      '       TC.ID AS ID_TIPO_CONTA,'
+      '       TC.DESCRICAO AS TIPO,'
+      '       C.STATUS,'
+      '       CASE'
+      '       WHEN C.STATUS = 0 THEN '#39'Inativa'#39
+      '       WHEN C.STATUS = 1 THEN '#39'Ativa'#39
+      '       ELSE '#39'Invalido'#39
+      '       END AS DESCRICAO_STATUS,'
+      '       C.ID_UNIDADE,'
+      '       UN.NOME AS UNIDADE'
+      'FROM FIN_CONTAS C'
+      'JOIN FIN_TIPO_CONTAS TC ON (TC.ID = C.ID_TIPO_CONTAS)'
+      'JOIN SYS_UNIDADE UN ON (UN.ID = C.ID_UNIDADE);')
+    Left = 552
+    Top = 472
+    object qryGridCadContasCONTA: TIntegerField
+      FieldName = 'CONTA'
+      Origin = 'ID'
+      Required = True
+    end
+    object qryGridCadContasNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'DESCRICAO'
+      Required = True
+      Size = 50
+    end
+    object qryGridCadContasID_TIPO_CONTA: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'ID_TIPO_CONTA'
+      Origin = 'ID'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object qryGridCadContasTIPO: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'TIPO'
+      Origin = 'DESCRICAO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object qryGridCadContasSTATUS: TIntegerField
+      FieldName = 'STATUS'
+      Origin = 'STATUS'
+      Required = True
+    end
+    object qryGridCadContasID_UNIDADE: TIntegerField
+      FieldName = 'ID_UNIDADE'
+      Origin = 'ID_UNIDADE'
+      Required = True
+    end
+    object qryGridCadContasUNIDADE: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'UNIDADE'
+      Origin = 'NOME'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 255
+    end
+    object qryGridCadContasDESCRICAO_STATUS: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'DESCRICAO_STATUS'
+      Origin = 'DESCRICAO_STATUS'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 8
+    end
   end
 end

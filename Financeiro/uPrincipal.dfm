@@ -24,7 +24,7 @@ object frmPrincipal: TfrmPrincipal
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
-    TabOrder = 0
+    TabOrder = 1
     object btnInicial: TSpeedButton
       Left = 0
       Top = 36
@@ -122,8 +122,7 @@ object frmPrincipal: TfrmPrincipal
         0000000000000000000000000000000000000000000000000000000000000000
         00000000000000000000}
       OnClick = btnMenuClick
-      ExplicitTop = -12
-      ExplicitWidth = 41
+      ExplicitTop = 3
     end
     object btnFavorito: TSpeedButton
       Left = 0
@@ -389,7 +388,7 @@ object frmPrincipal: TfrmPrincipal
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
-    TabOrder = 1
+    TabOrder = 2
     object pnlJanela: TPanel
       Left = 0
       Top = 0
@@ -409,7 +408,7 @@ object frmPrincipal: TfrmPrincipal
     BevelOuter = bvNone
     Color = 12615680
     ParentBackground = False
-    TabOrder = 2
+    TabOrder = 0
     object btnVoltar: TPngSpeedButton
       Left = 0
       Top = 0
@@ -437,6 +436,7 @@ object frmPrincipal: TfrmPrincipal
       Top = 3
       Width = 248
       Height = 24
+      TabStop = False
       Align = alRight
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -445,7 +445,7 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      Text = 'Pesquisar'
+      TextHint = 'Pesquisar'
       ExplicitHeight = 29
     end
     object pnlTitulo: TPanel

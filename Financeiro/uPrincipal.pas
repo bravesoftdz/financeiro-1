@@ -29,16 +29,17 @@ type
     pnlTitulo: TPanel;
     procedure FormShow(Sender: TObject);
     procedure btnMenuClick(Sender: TObject);
-    procedure btnConfiguracaoClick(Sender: TObject);
     procedure btnUsuarioClick(Sender: TObject);
     procedure btnVoltarClick(Sender: TObject);
     procedure btnCadContasClick(Sender: TObject);
+    procedure btnConfiguracaoClick(Sender: TObject);
   private
     procedure AbrirTela(Form: TComponentClass);
     procedure FecharTela;
     { Private declarations }
   public
     procedure AlterarTela(Acao : Char);
+
     { Public declarations }
   end;
 
