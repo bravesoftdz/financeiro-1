@@ -1,0 +1,34 @@
+unit uFiltroRelLancamentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFiltroRelComum, Vcl.Buttons,
+  PngSpeedButton, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.ComCtrls, Vcl.StdCtrls,
+  uADStanIntf, uADStanOption, uADStanParam, uADStanError,
+  uADDatSManager, uADPhysIntf, uADDAptIntf, uADStanAsync, uADDAptManager,
+  Data.DB, uADCompDataSet, uADCompClient, uDmPrincipal;
+
+type
+  TfrmFiltroRelLancamentos = class(TfrmFiltroRelComum)
+    lblDataInicial: TLabel;
+    lblDataFinal: TLabel;
+    dtDataInicial: TDateTimePicker;
+    dtDataFinal: TDateTimePicker;
+    cbbContas: TDBLookupComboBox;
+    lblContas: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFiltroRelLancamentos: TfrmFiltroRelLancamentos;
+
+implementation
+
+{$R *.dfm}
+
+end.

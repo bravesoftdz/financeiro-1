@@ -18,11 +18,16 @@ type
     btnEditar: TPngSpeedButton;
     btnCancelar: TPngSpeedButton;
     btnExcluir: TPngSpeedButton;
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnGravarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
 
     { Private declarations }
   public
-
+    procedure HabilitarBotoes(status : Boolean);
     { Public declarations }
   end;
 
@@ -38,5 +43,41 @@ implementation
 
 
 { TfrmComum }
+
+{ TfrmComum }
+
+procedure TfrmComum.btnCancelarClick(Sender: TObject);
+begin
+  HabilitarBotoes(False);
+end;
+
+procedure TfrmComum.btnEditarClick(Sender: TObject);
+begin
+  HabilitarBotoes(True);
+end;
+
+procedure TfrmComum.btnGravarClick(Sender: TObject);
+begin
+  HabilitarBotoes(false);
+end;
+
+procedure TfrmComum.btnNovoClick(Sender: TObject);
+begin
+  HabilitarBotoes(True);
+end;
+
+procedure TfrmComum.FormCreate(Sender: TObject);
+begin
+  HabilitarBotoes(false);
+end;
+
+procedure TfrmComum.HabilitarBotoes(status: Boolean);
+begin
+  btnNovo.Enabled      := not status;
+  btnGravar.Enabled    := status;
+  btnEditar.Enabled    := not status;
+  btnCancelar.Enabled  := status;
+  btnExcluir.Enabled   := not status;
+end;
 
 end.

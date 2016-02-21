@@ -1,6 +1,7 @@
 object frmComum: TfrmComum
   Left = 0
   Top = 0
+  AutoSize = True
   Caption = 'frmComum'
   ClientHeight = 353
   ClientWidth = 537
@@ -12,6 +13,7 @@ object frmComum: TfrmComum
   Font.Style = []
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 20
   object pnlStatus: TPanel
@@ -44,6 +46,7 @@ object frmComum: TfrmComum
       Height = 37
       Caption = 'Novo'
       Flat = True
+      OnClick = btnNovoClick
       PngImage.Data = {
         89504E470D0A1A0A0000000D494844520000001A0000001A0806000000A94A4C
         CE00000006624B474400FF00FF00FFA0BDA793000001854944415478DAEDD64B
@@ -68,6 +71,7 @@ object frmComum: TfrmComum
       Height = 37
       Caption = 'Gravar'
       Flat = True
+      OnClick = btnGravarClick
       PngImage.Data = {
         89504E470D0A1A0A0000000D494844520000001A0000001A0806000000A94A4C
         CE00000006624B474400FF00FF00FFA0BDA7930000010D4944415478DAEDD53F
@@ -90,6 +94,7 @@ object frmComum: TfrmComum
       Flat = True
       ParentShowHint = False
       ShowHint = False
+      OnClick = btnEditarClick
       PngImage.Data = {
         89504E470D0A1A0A0000000D494844520000001A0000001A0806000000A94A4C
         CE00000006624B474400FF00FF00FFA0BDA7930000018B4944415478DAEDD5CB
@@ -114,6 +119,7 @@ object frmComum: TfrmComum
       Height = 37
       Caption = 'Cancelar'
       Flat = True
+      OnClick = btnCancelarClick
       PngImage.Data = {
         89504E470D0A1A0A0000000D494844520000001A0000001A0806000000A94A4C
         CE00000006624B474400FF00FF00FFA0BDA7930000023E4944415478DACDD65F

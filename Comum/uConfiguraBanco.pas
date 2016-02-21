@@ -15,6 +15,7 @@ type
     OpenDialog: TOpenDialog;
     btnTestarConexao: TPngSpeedButton;
     procedure btnCaminhoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
 
     { Private declarations }
@@ -45,6 +46,12 @@ begin
   begin
     edtCaminho.Text := OpenDialog.FileName;
   end;
+end;
+
+procedure TfrmConfiguraBanco.FormCreate(Sender: TObject);
+begin
+  inherited;
+  HabilitarBotoes(false);
 end;
 
 end.

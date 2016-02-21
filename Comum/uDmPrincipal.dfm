@@ -19,11 +19,11 @@ object dmPrincipal: TdmPrincipal
     Top = 8
   end
   object adDriver: TADPhysIBDriverLink
-    Left = 64
+    Left = 72
     Top = 8
   end
   object adCursor: TADGUIxWaitCursor
-    Left = 104
+    Left = 136
     Top = 8
   end
 end

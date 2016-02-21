@@ -43,6 +43,13 @@ type
     qryUnidadeID_UNIDADE: TIntegerField;
     qryUnidadeUNIDADE: TStringField;
     qryGridCadContasDESCRICAO_STATUS: TStringField;
+    lblEmpresa: TLabel;
+    qryEmpresa: TADQuery;
+    dsEmpresa: TDataSource;
+    cbbEmpresa: TDBLookupComboBox;
+    qryEmpresaID: TIntegerField;
+    qryEmpresaNOME: TStringField;
+    qryGridCadContasEMPRESA: TStringField;
     procedure FormActivate(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
@@ -52,13 +59,17 @@ type
     procedure btnEditarClick(Sender: TObject);
     procedure gridCadContasCellClick(Column: TColumn);
     procedure qryGridCadContasAfterScroll(DataSet: TDataSet);
+    procedure cbbEmpresaCloseUp(Sender: TObject);
+    procedure cbbEmpresaKeyPress(Sender: TObject; var Key: Char);
+    procedure cbbEmpresaClick(Sender: TObject);
   private
     operacao : string;
     procedure PreencherCampos;
-    procedure HabilitarCampos(status : Boolean);
+    procedure HabilitaCampos(status : Boolean);
     procedure Excluir;
-    function PersisteDados(operacao: string) : Boolean;
     procedure Cancelar;
+    function  PersisteDados(operacao: string) : Boolean;
+    function  ValidaCampos : Boolean;
      { Private declarations }
   public
     { Public declarations }
@@ -74,15 +85,16 @@ implementation
 procedure TfrmCadastroContas.btnCancelarClick(Sender: TObject);
 begin
   inherited;
+  qryUnidade.Close;
   qryGridCadContas.Refresh;
-  HabilitarCampos(false);
   Cancelar;
+  HabilitaCampos(false);
 end;
 
 procedure TfrmCadastroContas.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  HabilitarCampos(true);
+  HabilitaCampos(true);
   PreencherCampos;
   operacao := 'E';
 end;
@@ -91,22 +103,26 @@ procedure TfrmCadastroContas.btnExcluirClick(Sender: TObject);
 begin
   inherited;
   Excluir;
+  Cancelar;
+  qryGridCadContas.Refresh;
 end;
 
 procedure TfrmCadastroContas.btnGravarClick(Sender: TObject);
 begin
   inherited;
-  qryGridCadContas.Refresh;
-  HabilitarCampos(false);
   PersisteDados(operacao);
+  qryGridCadContas.Refresh;
+
+
 end;
 
 procedure TfrmCadastroContas.btnNovoClick(Sender: TObject);
 begin
   inherited;
   Cancelar;
-  HabilitarCampos(True);
+  HabilitaCampos(True);
   operacao := 'I';
+  qryUnidade.Close;
 end;
 
 procedure TfrmCadastroContas.Cancelar;
@@ -114,48 +130,93 @@ begin
   cbbStatus.ClearSelection;
   edtID.Clear;
   edtDesc.Clear;
+  cbbEmpresa.KeyValue   := 0;
   cbbTipoConta.KeyValue := 0;
-  cbbUnidade.KeyValue := 0;
+  cbbUnidade.KeyValue   := 0;
+end;
+
+procedure TfrmCadastroContas.cbbEmpresaClick(Sender: TObject);
+begin
+  inherited;
+  qryUnidade.Close;
+end;
+
+procedure TfrmCadastroContas.cbbEmpresaCloseUp(Sender: TObject);
+begin
+  inherited;
+  with qryUnidade do
+  begin
+   if cbbEmpresa.KeyValue = 0 then
+   begin
+     Close;
+   end
+   else
+   begin
+     ParamByName('ID_EMPRESA').AsInteger := qryEmpresaID.AsInteger;
+     Open;
+   end;
+  end;
+end;
+
+procedure TfrmCadastroContas.cbbEmpresaKeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  cbbEmpresaCloseUp(cbbUnidade);
 end;
 
 procedure TfrmCadastroContas.Excluir;
 begin
-  with qryCadContas do
+  if edtID.Text = '' then
   begin
-    Close;
-    SQL.Clear;
-    if edtID.Text <> '' then
+    ShowMessage('Selecione um registro para excluir!');
+    Exit;
+  end
+  else
+  if Application.MessageBox('Tem certeza que deseja excluir?', 'Exluir registro', MB_YESNO + MB_ICONQUESTION) = ID_YES then
+  begin
+    with qryCadContas do
     begin
-    SQL.Add('DELETE FROM FIN_CONTAS WHERE ID = :ID');
-    ParamByName('ID').AsInteger := StrToInt(edtID.Text);
-    end
-    else
-      begin
-        showMessage('Selecione o registro que seja excluir!');
-        Exit;
-      end;
-    try
+      Close;
+      SQL.Clear;
+      SQL.Add('DELETE FROM FIN_CONTAS WHERE ID = :ID');
+      ParamByName('ID').AsInteger := StrToInt(edtID.Text);
+      try
       ExecSQL;
       ShowMessage('Registro excluido!');
       qryGridCadContas.Refresh;
-    except
-     ShowMessage('Erro ao excluir registro');
-    end;
+      except
+        on E:Exception do
+        begin
+          if Pos('FOREIGN', E.Message) > 0 then
+          begin
+            ShowMessage('Não é possível excluir um registro com vínculos!');
+          end
+          else
+            ShowMessage('Erro ao excluir registro!');
+        end;
+      end;
+    end
+  end
+  else
+  begin
+    Cancelar;
+    qryGridCadContas.Refresh;
   end;
 end;
 
 procedure TfrmCadastroContas.FormActivate(Sender: TObject);
 begin
   inherited;
-  qryUnidade.Open;
+  qryEmpresa.Open;
   qryTipoConta.Open;
   qryGridCadContas.Open;
+  Cancelar;
 end;
 
 procedure TfrmCadastroContas.FormCreate(Sender: TObject);
 begin
   inherited;
-  HabilitarCampos(false);
+  HabilitaCampos(false);
 end;
 
 procedure TfrmCadastroContas.gridCadContasCellClick(Column: TColumn);
@@ -164,21 +225,21 @@ begin
   PreencherCampos;
 end;
 
-procedure TfrmCadastroContas.HabilitarCampos(status: Boolean);
+procedure TfrmCadastroContas.HabilitaCampos(status: Boolean);
 begin
+  cbbEmpresa.Enabled   := status;
   cbbStatus.Enabled    := status;
   cbbUnidade.Enabled   := status;
   cbbTipoConta.Enabled := status;
   edtDesc.Enabled      := status;
-  btnNovo.Enabled      := not status;
-  btnGravar.Enabled    := status;
-  btnEditar.Enabled    := not status;
-  btnCancelar.Enabled  := status;
-  btnExcluir.Enabled   := not status;
 end;
 
 function TfrmCadastroContas.PersisteDados(operacao : string):Boolean;
 begin
+  if ValidaCampos = False then
+  begin
+    Exit;
+  end;
   with qryCadContas do
   begin
     Close;
@@ -202,6 +263,8 @@ begin
       ShowMessage('Dados gravados com sucesso!');
       qryGridCadContas.Refresh;
       Result := True;
+      HabilitaCampos(false);
+      HabilitarBotoes(false);
     except
       Result := False;
       ShowMessage('Erro ao gravar dados!');
@@ -211,15 +274,19 @@ end;
 
 procedure TfrmCadastroContas.PreencherCampos;
 begin
+  qryEmpresa.Close;
+  qryEmpresa.Open;
   qryUnidade.Close;
   qryUnidade.Open;
   qryTipoConta.Close;
   qryTipoConta.Open;
-  cbbStatus.ItemIndex := qryGridCadContasSTATUS.AsInteger;
+  cbbEmpresaCloseUp(cbbUnidade);
   edtID.Text := qryGridCadContasCONTA.AsString;
-  cbbUnidade.KeyValue := qryGridCadContasID_UNIDADE.AsInteger;
-  cbbTipoConta.KeyValue := qryGridCadContasID_TIPO_CONTA.AsInteger;
   edtDesc.Text := qryGridCadContasNOME.AsString;
+  cbbStatus.ItemIndex   := qryGridCadContasSTATUS.AsInteger;
+  cbbEmpresa.KeyValue   := qryEmpresaID.AsInteger;
+  cbbUnidade.KeyValue   := qryGridCadContasID_UNIDADE.AsInteger;
+  cbbTipoConta.KeyValue := qryGridCadContasID_TIPO_CONTA.AsInteger;
 
 end;
 
@@ -227,6 +294,49 @@ procedure TfrmCadastroContas.qryGridCadContasAfterScroll(DataSet: TDataSet);
 begin
   inherited;
   PreencherCampos;
+end;
+
+function TfrmCadastroContas.ValidaCampos : Boolean;
+var erro : Integer;
+begin
+  Result := False;
+  erro := 0;
+  if cbbStatus.ItemIndex = -1 then
+  begin
+    Inc(erro);
+    ShowMessage('Campo Obrigatório!');
+    cbbStatus.SetFocus;
+  end
+  else
+  if cbbEmpresa.KeyValue = 0 then
+  begin
+    Inc(erro);
+    ShowMessage('Campo Obrigatório!');
+    cbbEmpresa.SetFocus;
+  end
+  else
+  if cbbUnidade.KeyValue = 0 then
+  begin
+    Inc(erro);
+    ShowMessage('Campo Obrigatório!');
+    cbbUnidade.SetFocus;
+  end
+  else
+  if cbbTipoConta.KeyValue = 0 then
+  begin
+    Inc(erro);
+    ShowMessage('Campo Obrigatório!');
+    cbbTipoConta.SetFocus;
+  end
+  else
+  if Trim(edtDesc.Text) = '' then
+  begin
+    Inc(erro);
+    ShowMessage('Campo Obrigatório!');
+    edtDesc.SetFocus;
+  end;
+  Result := erro = 0;
+  HabilitarBotoes(true);
 end;
 
 end.

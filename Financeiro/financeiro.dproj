@@ -114,6 +114,38 @@
 				<Form>frmTiposConta</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
+			<DCCReference Include="uLancamentos.pas">
+				<Form>frmLancamentos</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\Comum\uFiltroRelComum.pas">
+				<Form>frmFiltroRelComum</Form>
+			</DCCReference>
+			<DCCReference Include="..\Comum\uFiltroRelLancamentos.pas">
+				<Form>frmFiltroRelLancamentos</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="uContasPagar.pas">
+				<Form>frmContasPagar</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="uPessoas.pas">
+				<Form>frmPessoas</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="..\Comum\uPesquisarComum.pas">
+				<Form>frmPesquisarComum</Form>
+			</DCCReference>
+			<DCCReference Include="uPesquisarCredor.pas">
+				<Form>frmPesquisarCredor</Form>
+			</DCCReference>
+			<DCCReference Include="uContasReceber.pas">
+				<Form>frmContasReceber</Form>
+			</DCCReference>
+			<DCCReference Include="uRelatorios.pas">
+				<Form>frmRelatorios</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

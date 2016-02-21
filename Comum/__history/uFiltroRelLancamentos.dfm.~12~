@@ -1,0 +1,60 @@
+inherited frmFiltroRelLancamentos: TfrmFiltroRelLancamentos
+  Caption = 'Relat'#243'rio de lan'#231'amentos'
+  ExplicitWidth = 411
+  ExplicitHeight = 321
+  PixelsPerInch = 96
+  TextHeight = 20
+  inherited pnlCentro: TPanel
+    object lblDataInicial: TLabel
+      Left = 30
+      Top = 66
+      Width = 75
+      Height = 20
+      Caption = 'Data Inicial'
+    end
+    object lblDataFinal: TLabel
+      Left = 30
+      Top = 126
+      Width = 67
+      Height = 20
+      Caption = 'Data Final'
+    end
+    object lblContas: TLabel
+      Left = 30
+      Top = 6
+      Width = 39
+      Height = 20
+      Caption = 'Conta'
+    end
+    object dtDataInicial: TDateTimePicker
+      Left = 30
+      Top = 92
+      Width = 186
+      Height = 28
+      Date = 42405.550010879640000000
+      Time = 42405.550010879640000000
+      TabOrder = 0
+    end
+    object dtDataFinal: TDateTimePicker
+      Left = 30
+      Top = 152
+      Width = 186
+      Height = 28
+      Date = 42405.550042673610000000
+      Time = 42405.550042673610000000
+      TabOrder = 1
+    end
+    object cbbContas: TDBLookupComboBox
+      Left = 30
+      Top = 32
+      Width = 145
+      Height = 28
+      TabOrder = 2
+    end
+  end
+  inherited pnlBotoes: TPanel
+    inherited btnFechar: TPngSpeedButton
+      OnClick = btnFecharClick
+    end
+  end
+end

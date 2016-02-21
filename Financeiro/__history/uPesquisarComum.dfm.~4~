@@ -1,0 +1,103 @@
+object frmPesquisarComum: TfrmPesquisarComum
+  Left = 0
+  Top = 0
+  Caption = 'frmPesquisarComum'
+  ClientHeight = 330
+  ClientWidth = 477
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -15
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 20
+  object Panel1: TPanel
+    Left = 0
+    Top = 316
+    Width = 477
+    Height = 14
+    Align = alBottom
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitTop = 289
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 477
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitLeft = 200
+    ExplicitTop = 80
+    ExplicitWidth = 185
+  end
+  object Panel3: TPanel
+    AlignWithMargins = True
+    Left = 30
+    Top = 41
+    Width = 417
+    Height = 37
+    Margins.Left = 30
+    Margins.Top = 0
+    Margins.Right = 30
+    Margins.Bottom = 0
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 14540253
+    ParentBackground = False
+    TabOrder = 2
+    ExplicitLeft = 0
+    ExplicitWidth = 477
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 78
+    Width = 477
+    Height = 238
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 3
+    ExplicitLeft = 232
+    ExplicitTop = 136
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object DBGrid1: TDBGrid
+      AlignWithMargins = True
+      Left = 30
+      Top = 37
+      Width = 417
+      Height = 198
+      Margins.Left = 30
+      Margins.Right = 30
+      Align = alClient
+      TabOrder = 0
+      TitleFont.Charset = ANSI_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -15
+      TitleFont.Name = 'Segoe UI'
+      TitleFont.Style = []
+    end
+    object edtPesquisar: TEdit
+      AlignWithMargins = True
+      Left = 30
+      Top = 3
+      Width = 417
+      Height = 28
+      Margins.Left = 30
+      Margins.Right = 30
+      Align = alTop
+      TabOrder = 1
+      TextHint = 'Pesquisar'
+    end
+  end
+end

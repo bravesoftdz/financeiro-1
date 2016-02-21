@@ -1,0 +1,30 @@
+unit uRelatorios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uComum, Vcl.Buttons, PngSpeedButton,
+  Vcl.ExtCtrls;
+
+type
+  TfrmRelatorios = class(TfrmComum)
+    btnRelLancamentos: TPngSpeedButton;
+    PngSpeedButton2: TPngSpeedButton;
+    PngSpeedButton3: TPngSpeedButton;
+    PngSpeedButton4: TPngSpeedButton;
+    PngSpeedButton5: TPngSpeedButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelatorios: TfrmRelatorios;
+
+implementation
+
+{$R *.dfm}
+
+end.

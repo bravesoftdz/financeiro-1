@@ -1,0 +1,41 @@
+inherited frmRelatorios: TfrmRelatorios
+  Align = alClient
+  Caption = 'Relat'#243'rios'
+  ClientWidth = 541
+  ExplicitWidth = 557
+  ExplicitHeight = 392
+  PixelsPerInch = 96
+  TextHeight = 20
+  inherited pnlStatus: TPanel
+    Width = 541
+    ExplicitWidth = 120
+  end
+  inherited pnlBotoes: TPanel
+    Width = 481
+    AutoSize = False
+    ExplicitWidth = 60
+    inherited btnNovo: TPngSpeedButton
+      Visible = False
+    end
+    inherited btnGravar: TPngSpeedButton
+      Visible = False
+    end
+    inherited btnEditar: TPngSpeedButton
+      Visible = False
+    end
+    inherited btnCancelar: TPngSpeedButton
+      Visible = False
+    end
+    inherited btnExcluir: TPngSpeedButton
+      Visible = False
+    end
+  end
+  inherited pnlCentro: TPanel
+    Width = 541
+    ExplicitWidth = 120
+  end
+  inherited pnlTitulo: TPanel
+    Width = 541
+    ExplicitWidth = 120
+  end
+end

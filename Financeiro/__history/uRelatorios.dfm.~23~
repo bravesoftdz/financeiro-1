@@ -1,0 +1,8 @@
+inherited frmRelatorios: TfrmRelatorios
+  Caption = 'Relat'#243'rios'
+  PixelsPerInch = 96
+  TextHeight = 20
+  inherited pnlBotoes: TPanel
+    AutoSize = False
+  end
+end

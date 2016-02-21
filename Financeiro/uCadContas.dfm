@@ -1,94 +1,88 @@
 inherited frmCadastroContas: TfrmCadastroContas
   Caption = 'Cadastrar contas'
-  ClientHeight = 567
+  ClientHeight = 650
   ClientWidth = 947
+  Position = poDesigned
   OnActivate = FormActivate
-  OnCreate = FormCreate
-  ExplicitTop = -225
   ExplicitWidth = 963
-  ExplicitHeight = 606
+  ExplicitHeight = 689
   PixelsPerInch = 96
   TextHeight = 20
   inherited pnlStatus: TPanel
-    Top = 553
+    Top = 636
     Width = 947
-    ExplicitTop = 553
+    ExplicitTop = 636
     ExplicitWidth = 947
   end
   inherited pnlBotoes: TPanel
     Width = 887
     ExplicitWidth = 887
-    inherited btnNovo: TPngSpeedButton
-      OnClick = btnNovoClick
-    end
-    inherited btnGravar: TPngSpeedButton
-      OnClick = btnGravarClick
-    end
-    inherited btnEditar: TPngSpeedButton
-      OnClick = btnEditarClick
-    end
-    inherited btnCancelar: TPngSpeedButton
-      OnClick = btnCancelarClick
-    end
     inherited btnExcluir: TPngSpeedButton
       OnClick = btnExcluirClick
     end
   end
   inherited pnlCentro: TPanel
     Width = 947
-    Height = 469
+    Height = 552
     ExplicitWidth = 947
-    ExplicitHeight = 469
+    ExplicitHeight = 552
     object lblID: TLabel
       Left = 30
-      Top = 67
-      Width = 15
+      Top = 11
+      Width = 49
       Height = 20
-      Caption = 'ID'
+      Caption = 'C'#243'digo'
     end
     object lblTipoContas: TLabel
       Left = 30
-      Top = 191
+      Top = 251
       Width = 71
       Height = 20
       Caption = 'Tipo conta'
     end
     object lblUnidade: TLabel
       Left = 30
-      Top = 127
+      Top = 191
       Width = 56
       Height = 20
       Caption = 'Unidade'
     end
     object lblStatus: TLabel
       Left = 30
-      Top = 11
+      Top = 71
       Width = 40
       Height = 20
       Caption = 'Status'
     end
     object lblDescricao: TLabel
       Left = 30
-      Top = 264
+      Top = 311
       Width = 65
       Height = 20
       Caption = 'Descri'#231#227'o'
     end
+    object lblEmpresa: TLabel
+      Left = 30
+      Top = 131
+      Width = 57
+      Height = 20
+      Caption = 'Empresa'
+    end
     object cbbTipoConta: TDBLookupComboBox
       Left = 30
-      Top = 217
-      Width = 176
+      Top = 277
+      Width = 211
       Height = 28
       BevelOuter = bvNone
       KeyField = 'ID'
       ListField = 'DESCRICAO'
       ListFieldIndex = 2
       ListSource = dsTipoConta
-      TabOrder = 3
+      TabOrder = 4
     end
     object edtID: TEdit
       Left = 30
-      Top = 93
+      Top = 37
       Width = 176
       Height = 28
       TabStop = False
@@ -100,8 +94,8 @@ inherited frmCadastroContas: TfrmCadastroContas
     end
     object cbbUnidade: TDBLookupComboBox
       Left = 30
-      Top = 153
-      Width = 176
+      Top = 217
+      Width = 211
       Height = 28
       BevelOuter = bvNone
       Color = clWhite
@@ -109,32 +103,40 @@ inherited frmCadastroContas: TfrmCadastroContas
       ListField = 'UNIDADE'
       ListFieldIndex = 2
       ListSource = dsUnidade
-      TabOrder = 2
+      TabOrder = 3
     end
     object cbbStatus: TComboBox
       Left = 30
-      Top = 37
+      Top = 97
       Width = 176
       Height = 28
+      AutoDropDown = True
       BevelOuter = bvNone
+      Style = csOwnerDrawFixed
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ItemHeight = 22
+      ParentFont = False
       TabOrder = 0
       Items.Strings = (
         'Inativa'
-        'Ativa'
-        '')
+        'Ativa')
     end
     object edtDesc: TEdit
       Left = 30
-      Top = 291
+      Top = 337
       Width = 267
       Height = 28
       MaxLength = 255
-      TabOrder = 4
+      TabOrder = 5
     end
     object gridCadContas: TDBGrid
       AlignWithMargins = True
       Left = 30
-      Top = 333
+      Top = 416
       Width = 914
       Height = 133
       Margins.Left = 30
@@ -143,7 +145,7 @@ inherited frmCadastroContas: TfrmCadastroContas
       DataSource = dsGridCadContas
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
       ParentColor = True
-      TabOrder = 5
+      TabOrder = 6
       TitleFont.Charset = ANSI_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -15
@@ -152,6 +154,7 @@ inherited frmCadastroContas: TfrmCadastroContas
       OnCellClick = gridCadContasCellClick
       Columns = <
         item
+          Alignment = taCenter
           Expanded = False
           FieldName = 'CONTA'
           Title.Alignment = taCenter
@@ -160,6 +163,7 @@ inherited frmCadastroContas: TfrmCadastroContas
           Visible = True
         end
         item
+          Alignment = taCenter
           Expanded = False
           FieldName = 'NOME'
           Title.Alignment = taCenter
@@ -168,6 +172,7 @@ inherited frmCadastroContas: TfrmCadastroContas
           Visible = True
         end
         item
+          Alignment = taCenter
           Expanded = False
           FieldName = 'TIPO'
           Title.Alignment = taCenter
@@ -176,6 +181,7 @@ inherited frmCadastroContas: TfrmCadastroContas
           Visible = True
         end
         item
+          Alignment = taCenter
           Expanded = False
           FieldName = 'DESCRICAO_STATUS'
           Title.Alignment = taCenter
@@ -184,13 +190,36 @@ inherited frmCadastroContas: TfrmCadastroContas
           Visible = True
         end
         item
+          Alignment = taCenter
           Expanded = False
           FieldName = 'UNIDADE'
           Title.Alignment = taCenter
           Title.Caption = 'Unidade'
-          Width = 290
+          Width = 250
+          Visible = True
+        end
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'EMPRESA'
+          Title.Alignment = taCenter
+          Title.Caption = 'Empresa'
+          Width = 250
           Visible = True
         end>
+    end
+    object cbbEmpresa: TDBLookupComboBox
+      Left = 30
+      Top = 157
+      Width = 211
+      Height = 28
+      KeyField = 'ID'
+      ListField = 'NOME'
+      ListSource = dsEmpresa
+      TabOrder = 2
+      OnClick = cbbEmpresaClick
+      OnCloseUp = cbbEmpresaCloseUp
+      OnKeyPress = cbbEmpresaKeyPress
     end
   end
   inherited pnlTitulo: TPanel
@@ -209,8 +238,8 @@ inherited frmCadastroContas: TfrmCadastroContas
     Connection = dmPrincipal.Conexao
     SQL.Strings = (
       'SELECT ID,DESCRICAO FROM FIN_TIPO_CONTAS;')
-    Left = 224
-    Top = 296
+    Left = 272
+    Top = 352
     object qryTipoContaID: TIntegerField
       FieldName = 'ID'
       Origin = 'ID'
@@ -229,9 +258,17 @@ inherited frmCadastroContas: TfrmCadastroContas
     SQL.Strings = (
       'SELECT UN.ID AS ID_UNIDADE,'
       '       UN.NOME AS UNIDADE'
-      'FROM SYS_UNIDADE UN;')
-    Left = 224
-    Top = 232
+      'FROM SYS_UNIDADE UN'
+      'WHERE  UN.ID_EMPRESA = :ID_EMPRESA')
+    Left = 272
+    Top = 296
+    ParamData = <
+      item
+        Name = 'ID_EMPRESA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object qryUnidadeID_UNIDADE: TIntegerField
       FieldName = 'ID_UNIDADE'
       Origin = 'ID'
@@ -245,21 +282,20 @@ inherited frmCadastroContas: TfrmCadastroContas
   end
   object dsTipoConta: TDataSource
     DataSet = qryTipoConta
-    Left = 288
-    Top = 296
+    Left = 328
+    Top = 352
   end
   object dsUnidade: TDataSource
     DataSet = qryUnidade
-    Left = 280
-    Top = 232
+    Left = 328
+    Top = 296
   end
   object dsGridCadContas: TDataSource
     DataSet = qryGridCadContas
-    Left = 648
-    Top = 472
+    Left = 640
+    Top = 560
   end
   object qryGridCadContas: TADQuery
-    Active = True
     AutoCalcFields = False
     AfterScroll = qryGridCadContasAfterScroll
     Connection = dmPrincipal.Conexao
@@ -275,12 +311,14 @@ inherited frmCadastroContas: TfrmCadastroContas
       '       ELSE '#39'Invalido'#39
       '       END AS DESCRICAO_STATUS,'
       '       C.ID_UNIDADE,'
-      '       UN.NOME AS UNIDADE'
+      '       UN.NOME AS UNIDADE,'
+      '       EM.NOME AS EMPRESA'
       'FROM FIN_CONTAS C'
       'JOIN FIN_TIPO_CONTAS TC ON (TC.ID = C.ID_TIPO_CONTAS)'
-      'JOIN SYS_UNIDADE UN ON (UN.ID = C.ID_UNIDADE);')
-    Left = 552
-    Top = 472
+      'JOIN SYS_UNIDADE UN ON (UN.ID = C.ID_UNIDADE)'
+      'JOIN SYS_EMPRESA EM ON (EM.ID = UN.ID);')
+    Left = 560
+    Top = 560
     object qryGridCadContasCONTA: TIntegerField
       FieldName = 'CONTA'
       Origin = 'ID'
@@ -334,5 +372,39 @@ inherited frmCadastroContas: TfrmCadastroContas
       FixedChar = True
       Size = 8
     end
+    object qryGridCadContasEMPRESA: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'EMPRESA'
+      Origin = 'NOME'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 255
+    end
+  end
+  object qryEmpresa: TADQuery
+    Connection = dmPrincipal.Conexao
+    SQL.Strings = (
+      'SELECT ID, '
+      '       NOME '
+      'FROM SYS_EMPRESA;')
+    Left = 272
+    Top = 232
+    object qryEmpresaID: TIntegerField
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryEmpresaNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Required = True
+      Size = 255
+    end
+  end
+  object dsEmpresa: TDataSource
+    DataSet = qryEmpresa
+    Left = 328
+    Top = 232
   end
 end
